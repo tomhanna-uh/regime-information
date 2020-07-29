@@ -70,7 +70,17 @@ Selectorate2 <- VDem[,c("country_name","country_text_id","country_id","ccode","C
 
 Selectorate <- merge(Selectorate1,Selectorate2,by = c("ccode","year"))
 
-#Build W
+#Build variable W for Winning Coalition Size
+# This is based on the 2008 APSR article
+#"Retesting selectorate theory: Separating the effects of W from other elements of democracy"
+#Morrow, James D.,De Mesquita, Bruce Bueno,Siverson, Randolph M.,Smith, Alastair
+#I updated the variable using the PolityV dataset to include more current data
+#Because I did not have the Banks 1996 data on military regimes and in order to include more
+#recent observations, I used the regime support group variable from the VDem datasetv 
+#https://www.v-dem.net/en/
+#Morrow et al assigned a value of 1 unless the regime was military or military-civilian
+#I assigned a 1 unless military support was considered substantially important to the regime
+#without regard to other support groups
 
 #W1 = conditional on milsup = 1 
 
