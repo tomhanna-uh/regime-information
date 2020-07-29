@@ -72,10 +72,33 @@ Selectorate <- merge(Selectorate1,Selectorate2,by = c("ccode","year"))
 
 #Build W
 
-Selectorate$W = 0
+#W1 = conditional on milsup = 1 
+
+summary(Selectorate$v2regsupgroups_5)
+Selectorate$W1 <- ifelse(Selectorate$v2regsupgroups_5 != 1,1,0)
+summary(Selectorate$W1)
+
+#W2 = conditional on xrcomp >= 2
+summary(Selectorate$xrcomp)
+Selectorate$W2 <- ifelse(Selectorate$xrcomp >= 2,1,0)
+summary(Selectorate$W2)
 
 
+#W3 = conditional on xropen >= 2
 
+summary(Selectorate$xropen)
+Selectorate$W3 <- ifelse(Selectorate$xropen >= 2,1,0)
+summary(Selectorate$W3)
+
+#W4 = conditional on parcomp = 5
+
+summary(Selectorate$parcomp)
+Selectorate$W4 <- ifelse(Selectorate$parcomp == 5,1,0)
+summary(Selectorate$W4)
+
+#W = W1 + W2 + W3 + W4
+Selectorate$W = Selectorate$W1 + Selectorate$W2 + Selectorate$W3 + Selectorate$W4
+summary(Selectorate$W)
 
 write.csv(Selectorate,"selectorate-miscellaneous-measures.csv")
 
