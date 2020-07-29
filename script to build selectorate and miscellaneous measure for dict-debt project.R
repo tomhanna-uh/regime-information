@@ -70,5 +70,12 @@ Selectorate2 <- VDem[,c("country_name","country_text_id","country_id","ccode","C
 
 Selectorate <- merge(Selectorate1,Selectorate2,by = c("ccode","year"))
 
+#Build W
+
+Selectorate$W = 0
+
+
+
+
 write.csv(Selectorate,"selectorate-miscellaneous-measures.csv")
 
