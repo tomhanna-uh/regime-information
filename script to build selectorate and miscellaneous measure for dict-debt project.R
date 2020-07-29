@@ -112,3 +112,4 @@ summary(Selectorate$W)
 
 write.csv(Selectorate,"selectorate-miscellaneous-measures.csv")
 
+#
